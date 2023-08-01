@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">GpMass</string>
+    <string name="notes_blog_app">Notes Blog App</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Oscar Vazquez Juarez</string>
+    <string name="nav_header_subtitle">os.vaz.jua@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_notas">Notas</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="tv_date_created">Fecha de publicación:</string>
+    <string name="tv_title">Título</string>
+    <string name="tv_author">Autor</string>
+    <string name="show_notes">Ver notas</string>
+    <string name="tv_content">Contenido</string>
+    <string name="btn_save">Guardar</string>
+    <string name="helper_required">Requerido</string>
+    <string name="error_message">Revisar los campos requeridos</string>
+    <string name="ok_message">Guardado correctamente</string>
+</resources>
