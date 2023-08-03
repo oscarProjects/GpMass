@@ -18,7 +18,7 @@ import javax.inject.Inject
 class AddNoteViewModel @Inject constructor(private val saveDataUseCase: SaveDataUseCase): ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "This is AddNote Fragment"
     }
     val text: LiveData<String> = _text
 

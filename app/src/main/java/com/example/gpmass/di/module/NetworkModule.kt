@@ -1,5 +1,7 @@
 package com.example.gpmass.di.module
 
+import com.example.gpmass.data.network.ApiClient
+import com.example.gpmass.di.manager.RetrofitManager
 import com.example.gpmass.retrofit.ApiRetrofit
 import com.example.gpmass.retrofit.ClientRetrofit
 import dagger.Module
@@ -12,9 +14,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    private val clientRetrofit: ClientRetrofit = ClientRetrofit()
+
     @Singleton
     @Provides
-    fun provideRetrofitService(): ApiRetrofit? {
-        return ClientRetrofit.getApiRetrofit(ClientRetrofit.getRetrofitInstance())
+    fun provideRetrofit(): RetrofitManager {
+        return RetrofitManager(clientRetrofit.getClient().create(ApiClient::class.java))
     }
 }

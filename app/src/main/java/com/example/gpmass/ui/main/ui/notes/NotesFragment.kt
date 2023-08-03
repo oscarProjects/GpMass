@@ -42,6 +42,7 @@ class NotesFragment : Fragment(), ClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         loadNotes()
+        homeViewModel.getAllNotes()
     }
 
     private fun loadNotes(){

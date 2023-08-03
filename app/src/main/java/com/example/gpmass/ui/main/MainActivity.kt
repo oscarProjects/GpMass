@@ -13,7 +13,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.gpmass.R
 import com.example.gpmass.databinding.ActivityMainBinding
+import com.example.gpmass.di.module.NetworkModule
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -40,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_notas, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_notas, R.id.nav_add_note
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
