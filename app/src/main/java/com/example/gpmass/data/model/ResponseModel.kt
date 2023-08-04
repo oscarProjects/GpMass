@@ -1,10 +1,10 @@
 package com.example.gpmass.data.model
 
+import com.example.gpmass.room.entities.NoteEntity
+
 data class ResponseModel (
-    val description : String,
-    val id : String,
-    val name : String,
-    val results : List<ResultsModel>,
-    val total_pages : Int,
-    val total_results : Int
+    val success : Boolean,
+    val noteSaved : NoteEntity,
+    val message : String,
+    val listNotes : List<NoteEntity>
 )

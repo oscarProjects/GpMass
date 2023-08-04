@@ -18,7 +18,7 @@ class ClientRetrofit {
         client = httpClient.build()
 
         return Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .baseUrl("http://192.168.1.89:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

@@ -2,7 +2,6 @@ package com.example.gpmass.di.module
 
 import com.example.gpmass.data.network.ApiClient
 import com.example.gpmass.di.manager.RetrofitManager
-import com.example.gpmass.retrofit.ApiRetrofit
 import com.example.gpmass.retrofit.ClientRetrofit
 import dagger.Module
 import dagger.Provides

@@ -7,5 +7,5 @@ import javax.inject.Inject
 class NotesUsesCase @Inject constructor(
     private val repository: DataRepository
 ){
-    suspend operator fun invoke() : ResponseModel? = repository.getAllNotes()
+    suspend operator fun invoke() : ResponseModel = repository.getAllNotes()
 }

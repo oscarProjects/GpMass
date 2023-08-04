@@ -21,4 +21,6 @@
     <string name="helper_required">Requerido</string>
     <string name="error_message">Revisar los campos requeridos</string>
     <string name="ok_message">Guardado correctamente</string>
+
+    <string name="no_internet_error">No tienes conexión a internet</string>
 </resources>

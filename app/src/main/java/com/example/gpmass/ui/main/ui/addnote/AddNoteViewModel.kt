@@ -5,7 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gpmass.R
-import com.example.gpmass.data.domain.SaveDataUseCase
+import com.example.gpmass.data.domain.SaveDataLocalUseCase
+import com.example.gpmass.data.domain.SaveDataRemoteUseCase
 import com.example.gpmass.databinding.FragmentAddNoteBinding
 import com.example.gpmass.room.entities.NoteEntity
 import com.google.android.material.snackbar.Snackbar
@@ -15,7 +16,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddNoteViewModel @Inject constructor(private val saveDataUseCase: SaveDataUseCase): ViewModel() {
+class AddNoteViewModel @Inject constructor(
+    private val saveDataRemoteUseCase: SaveDataRemoteUseCase,
+    private val saveDataLocalUseCase: SaveDataLocalUseCase): ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is AddNote Fragment"
@@ -42,7 +45,8 @@ class AddNoteViewModel @Inject constructor(private val saveDataUseCase: SaveData
 
     fun saveData(noteEntity: NoteEntity){
         viewModelScope.launch {
-            saveDataUseCase.saveData(noteEntity)
+            //saveDataLocalUseCase.saveData(noteEntity)
+            val a = saveDataRemoteUseCase.saveData(noteEntity)
         }
     }
 

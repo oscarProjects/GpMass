@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gpmass.R
 import com.example.gpmass.databinding.FragmentAddNoteBinding
+import com.example.gpmass.di.manager.NavigationManager
+import com.example.gpmass.ext.isNetworkAvailable
 import com.example.gpmass.room.entities.NoteEntity
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AddNoteFragment : Fragment() {
@@ -23,6 +26,9 @@ class AddNoteFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var addNoteViewModel: AddNoteViewModel
+
+    @Inject
+    lateinit var navigation: NavigationManager
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,11 +44,6 @@ class AddNoteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        addNoteViewModel.text.observe(viewLifecycleOwner) {
-            //binding.textGallery.text = it
-        }
-
         initListener()
     }
 
@@ -50,8 +51,13 @@ class AddNoteFragment : Fragment() {
         binding.apply {
             linearSave.setOnClickListener {
                 if(addNoteViewModel.validateFields(binding, textInputLayoutTitle, textInputLayoutAuthor, textInputLayoutContent)){
-                    saveData(textInputLayoutTitle.editText?.text.toString().trim(),textInputLayoutAuthor.editText?.text.toString().trim(), textInputLayoutContent.editText?.text.toString().trim())
+                    if(isNetworkAvailable(requireActivity())){
+                        saveData(textInputLayoutTitle.editText?.text.toString().trim(),textInputLayoutAuthor.editText?.text.toString().trim(), textInputLayoutContent.editText?.text.toString().trim())
+                    }
                 }
+            }
+            linearNoteList.setOnClickListener {
+                navigation.onNavigateBack()
             }
         }
     }

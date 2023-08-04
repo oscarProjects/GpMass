@@ -9,11 +9,27 @@
         android:id="@+id/nav_notas"
         android:name="com.example.gpmass.ui.main.ui.notes.NotesFragment"
         android:label="@string/menu_notas"
-        tools:layout="@layout/fragment_notes" />
+        tools:layout="@layout/fragment_notes" >
+
+        <action
+            android:id="@+id/detailNoteFragment"
+            app:destination="@id/detailNoteFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_add_note"
         android:name="com.example.gpmass.ui.main.ui.addnote.AddNoteFragment"
         android:label="@string/menu_add_note"
         tools:layout="@layout/fragment_add_note" />
+
+    <fragment
+        android:id="@+id/detailNoteFragment"
+        android:name="com.example.gpmass.ui.main.ui.detailnote.DetailNoteFragment"
+        android:label="DetailNoteFragmentView"
+        tools:layout="@layout/fragment_detail_note"/>
 </navigation>
